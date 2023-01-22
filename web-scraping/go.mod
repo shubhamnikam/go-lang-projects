@@ -1,4 +1,4 @@
-module github.com/shubhamnikam/go-small-projects
+module github.com/shubhamnikam/go-small-projects/web-scrapping
 
 go 1.19
 
