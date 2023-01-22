@@ -8,6 +8,17 @@ import (
 	"strings"
 )
 
+/*NOTE => 
+# run go:
+go run main.go data.txt is AAAA
+
+# explain:
+fileName = data.txt
+searchText = is
+replaceText = AAAA
+
+*/
+
 func main() {
 	//check arg validity
 	if (len(os.Args[1:]) > 3) {
