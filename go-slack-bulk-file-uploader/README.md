@@ -19,8 +19,8 @@
     remote_files:write
 
 # install app to workspace
-# create & get Bot User OAuth Token and edit constants.go file
-# get Slack Channels ID's and edit constants.go file
+# create & get Bot User OAuth Token and update into .env file
+# get Slack Channels ID's and update into .env file
 ```
 
 #### program setup

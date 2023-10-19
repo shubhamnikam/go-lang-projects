@@ -7,12 +7,14 @@ import (
 	"os"
 	"strings"
 
-	"github.com/shubham-nikam/go-lang-projects/go-slack-bulk-file-uploader/utilities"
+	"github.com/joho/godotenv"
 	"github.com/slack-go/slack"
 )
 
 func main(){
 	fmt.Println("Welcome to slack-bulk-file-uploader :)")
+
+	godotenv.Load(".env")
 	
 	filePaths :=  GetFilesToUpload()
 	SetupFileUploader(filePaths)
@@ -49,12 +51,12 @@ func SetupFileUploader(filePaths []string) {
 		log.Fatalln("No file path found")		
 	}
 
-	api := slack.New(utilities.SLACK_TOKEN)
+	api := slack.New(os.Getenv("SLACK_TOKEN"))
 
 	// upload logic
 	for i:=0; i<len(filePaths); i++ {
 		params := slack.FileUploadParameters{
-			Channels: utilities.SLACK_CHANNELS_ID,
+			Channels: strings.Split(os.Getenv("SLACK_CHANNELS_ID"), ","),
 			File: filePaths[i],
 		}
 		file, err := api.UploadFile(params)
